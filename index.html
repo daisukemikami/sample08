@@ -1,0 +1,87 @@
+<!DOCTYOE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Animations</title>
+    <style>
+      body {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .box {
+        width: 40px;
+        height: 40px;
+        margin: 0 8px 8px 0;
+        cursor: pointer;
+        /* transition: 2s;
+        transition-timing-function: ease; */
+        /* opacity: 1; */
+        /* transition-property: transform, opacity;
+        transition-duration: .4s, .4s; */
+        /* transition: trandform .4s, opacity .4s; */
+        /* transition: all .4s; */
+        /* transition: .4s; */
+      }
+      .box1 { background: skyblue;}
+      .box2 { background: pink;}
+      .box3 { background: orange;}
+      .box4 { background: tomato;}
+      .box5 { background: lime;}
+      /* .box:hover { */
+        /* transform: translate(20px, 10px); */
+        /* transform: rotate(45deg); */
+        /* transform: scale(1.5); */
+        /* transform: scale(1.5) rotate(45deg); */
+        /* transform: rotate(45deg);
+        opacity: .3; */
+        /* transform-origin: left top; */
+      /* } */
+
+      /* .box.moved {
+        transform: translate(400px, 0);
+      } */
+      .box.moved {
+        animation-name: spin;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+        /* animation-fill-mode: forwards; */
+      }
+      @keyframes spin {
+        0% { transform: none; }
+        50% {transform: rotate(270deg) scale(0.8); border-radius: 50%; }
+        80% {transform: rotate(320deg) scale(1.8); border-radius: 50%; }
+        100% {transform: rotate(360deg) scale(0.2) translateY(200px); }
+      }
+      /* .box2 { transition-timing-function: ease-out; } */
+      /* .box2 { transition-timing-function: cubic-bezier(0.01, 1.68, 0.6, 2.12); }
+      .box3 {
+        transition-timing-function: ease-in-out;
+        height: 180px;
+        background: #333;
+      } */
+    </style>
+    <meta name="description" content="CSS Animationの練習用サイトです。">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+  </head>
+  <body>
+    <!-- <script src="js/main.js"></script> -->
+    <!-- <div class="box"></div> -->
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <div class="box box5"></div>
+    <script>
+     (() => {
+       'use strict';
+       document.querySelector('body').addEventListener('click', () => {
+         document.querySelectorAll('.box').forEach((box) => {
+           box.classList.add('moved');
+         });
+       });
+    })();
+    </script>
+  </body>
+</html>
